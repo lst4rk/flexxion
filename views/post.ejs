@@ -30,19 +30,12 @@
       </div>
 
       <div class="">
-        <form
-          action="/post/likePost/<%= post._id%>?_method=PUT"
-          method="POST"
-        >
-          <button class="cursor-pointer fa-solid fa-heart" type="submit"></button>
-        </form>
-        <h3 class="">Likes: <%= post.likes %></h3>
         <% if(post.user.id === user){ %>
           <form
             action="/post/deletePost/<%=post._id%>?_method=DELETE"
             method="POST"
           >
-            <button class=" fa-solid fa-trash" type="submit"></button>
+            <button class="" type="submit">delete</button>
           </form>
         <% } %>
       </div>
@@ -61,12 +54,28 @@
             <li class="block my-3">
               <span class="tracking-wider font-bold "><%= comments[i].user.userName%></span>
               <span><%= comments[i].comment%></span>
-              <span class="tracking-wider text-gray-400 block text-right text-sm"><%= comments[i].createdAt.toLocaleString("en-US") %></span>
+              <span class="tracking-wider text-gray-400 block text-right text-sm pt-1"><%= comments[i].createdAt.toLocaleString("en-US") %></span>
             </li>
           <% } %>
           </ul>
+          <div class="block mt-5">
+            <p class="">
+              <form
+              method="POST"
+              action="/post/likePost/<%= post._id%>?_method=PUT"
+              class="inline"
+            >
+              <button class="" type="submit">
+                <!-- one day: conditional for whether user.id is in the array of individuals that have liked said post -->
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </form>  
+  
+              <%= post.likes %>
+            </p>
+          </div>  
         <form action="/comment/createComment/<%=post._id%>" method="POST">
-          <div class="my-6">
+          <div class="mb-6">
               <!-- <label for="comment" class="form-label py-4 flex-grow basis-0 border-whit text-[#60DBCC] tracking-wider font-semibold my-3e">@<%= userName %></label> -->
               <div class="grid grid-cols-5 gap-2 mt-2">
                 <input type="text" class="col-span-4	bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2" id="comment" name="comment">

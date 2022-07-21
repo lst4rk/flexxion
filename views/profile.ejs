@@ -2,19 +2,31 @@
 <%- include('partials/headerbody') -%>
 
 <div class="container min-w-full flex">
-  <div class="mt-5 max-w-lg lg:max-w-3xl  mx-auto">
-          <div class="text-center my-8">
-              <p class="text-[#60DBCC] tracking-wider font-semibold my-3 text-2xl">@<%= publicUser.userName %></p>
-              <% if(publicUser === user){ %>
-                <p class="my-3"><%= user.email %></p>
-                <% } %>
-      
+  <div class="mt-5 max-w-lg lg:max-w-3xl w-full mx-auto">
+    <div class="md:flex md:justify-between">
+          <div class="md:text-left my-8 text-center">
+              <p class="text-[#163530] tracking-wider font-semibold my-3 text-xl">
+                <!-- <span class="text-center font-[comfortaa] bg-gradient-to-br	from-[#163530] text-white to-[#60DBCC] p-5 rounded-full text-2xl">
+                  <i class="fa-solid fa-face-meh-blank"></i>
+                </span> -->
+                <span class="py-1 text-2xl"><%= publicUser.userName %></span>
+                <p class="py-5 md:text-left italic">Bio coming soon.</p>
+              </p>
           </div>
-          <div class="text-center my-8">
+          <div class="md:my-8 md:text-right md:py-1">
             <% if(publicUser === user){ %>
-              <a href="/logout" class="px-3 p-2 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white">Logout</a>
+              <p class="my-3 text-sm text-gray-500"><%= user.email %></p>
               <% } %>
+    
+              <% if(publicUser === user){ %>
+                <a href="/logout" class="px-2 p-1 uppercase border border-[#163530] rounded-md text-[#163530] text-sm">Logout</a>
+                <% } %>
+  
           </div>
+    </div>
+          <span class="mx-auto text-center mt-5 block w-32">
+            <img src="/imgs/transp.png" alt="morse code f" class="">
+          </span>
           <div class="mt-5 w-full mx-auto">
             <!-- <ul class=" list-unstyled grid grid-cols-3 gap-4"> -->
             <ul class="flex w-full flex-col my-4 lg:grid lg:grid-cols-3 lg:gap-4 ">

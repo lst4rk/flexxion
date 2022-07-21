@@ -43,6 +43,13 @@
                 <textarea class="bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2 mt-2 p-2" id="caption" name="caption"></textarea>
               </div>
               <div class="text-left m-auto mb-8 uppercase tracking-wider">
+                <div
+                  id="drop_zone"
+                  ondrop="dropHandler(event);"
+                  ondragover="dragOverHandler(event);">
+                  <p>Drag one or more files to this <i>drop zone</i>.</p>
+                </div>
+
                 <label for="imgUpload" class="form-label p-2 flex-grow basis-0 border-white">Image:</label>
                 <input type="file" class="bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2 p-2 mt-2" id="imageUpload" name="file">
               </div>
