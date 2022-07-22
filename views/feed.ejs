@@ -10,7 +10,7 @@
               <img class="img-fluid" src="<%= posts[i].image%>">
               <div class="flex justify-between w-full py-3 flex-row">
                 <span class="text-xl uppercase tracking-wider text-[#163530] font-bold font-[comfortaa]"><%= posts[i].title %></span>
-                <span class="tracking-wider"><%= posts[i].createdAt.toLocaleDateString("en-US") %></span>
+                <span class="tracking-wider text-sm text-gray-400"><%= posts[i].createdAt.toLocaleString("en-US") %></span>
               </div>
             </a>
   
