@@ -1,0 +1,45 @@
+<%- include('partials/header') -%>
+
+<main class="container bg-[#7b8b89] min-w-full h-screen uppercase flex">
+  <div class="drop-shadow-[0_0_45px_rgba(22,53,48,0.8)] bg-[#E9F1EF] text-[#163530] w-3/6  m-auto bg-opacity-90 border-[#163530] p-4
+  after:block after:pb-[50%] items-center justify-center flex max-w-xl">
+    <section class="col-6 mt-5 flex flex-row flex-wrap justify-center text-center p-4">
+      <!-- <h1 class="text-4xl pb-6 w-full lowercase font-[comfortaa] font-medium text-[#163530]"><a href="/">flexion</a></h1> -->
+      <img class="pb-6 w-[35%]" src="imgs/transpprofile.png" alt="">
+      
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger text-red-700"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info text-red-700"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <form action="/login" method="POST" class="w-full text-center m-auto mb-8">
+        <div class="mb-5">
+          <input
+            type="email"
+            class="form-control bg-transparent form-control block w-full mx-auto text-center border-b border-[#163530]"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+          <label for="exampleInputEmail1" class="form-label block py-1.5 w-full text-left"
+          >Email address</label>
+        </div>
+        <div class="mb-5">
+          <input
+            type="password"
+            class="form-control bg-transparent form-control block w-full mx-auto text-center border-b border-[#163530]"
+            id="exampleInputPassword1"
+            name="password"
+          />
+          <label for="exampleInputPassword1" class="form-label block py-1.5 w-full text-left">Password</label>
+        </div>
+        <button type="submit" class="px-4 p-3 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white ">Log in</button>
+      </form>
+      <a href="/signup" class="p-3 px-4 rounded-md bg-white self-center tracking-wider mr-2">Sign up</a>
+      <a href="/"class="p-3 px-4 rounded-md bg-white self-center rounded-md ml-2"><i class="fa-solid fa-house"></i></a>
+    </section>
+  </div>
+</main>
+
+<%- include('partials/footer') -%>

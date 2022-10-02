@@ -1,0 +1,28 @@
+<%- include('partials/header') -%>
+<%- include('partials/headerbody') -%>
+
+<div class="container min-w-full flex">
+  <div class="mt-5 max-w-lg lg:max-w-3xl  mx-auto">
+          <div class="text-center my-8">
+              <p class="text-[#60DBCC] tracking-wider font-semibold my-3 text-2xl">@<%= user.userName %></p>
+              <p class="my-3"><%= user.email %></p>
+          </div>
+          <div class="text-center my-8">
+            <a href="/logout" class="px-3 p-2 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white">Logout</a>
+          </div>
+          <div class="mt-5 w-full mx-auto">
+            <!-- <ul class=" list-unstyled grid grid-cols-3 gap-4"> -->
+            <ul class="flex w-full flex-col my-4 lg:grid lg:grid-cols-3 lg:gap-4 ">
+            <% for(var i=0; i<posts.length; i++) {%>
+              <li class="my-3">
+                <a href="/post/<%= posts[i]._id%>">
+                  <img class="img-fluid h-full" src="<%= posts[i].image%>">
+                </a>
+              </li>
+            <% } %>
+            </ul>
+          </div> 
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

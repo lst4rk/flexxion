@@ -1,0 +1,78 @@
+<%- include('partials/header') -%>
+<%- include('partials/headerbody') -%>
+
+<div class="container min-w-full">
+  <div class="md:max-w-6xl xl:w-3/5 lg:w-3/4 md:w-11/12 sm:mx-auto md:grid md:grid-cols-2 md:block py-6 w-full flex flex-col items-center gap-4 w-3/4 mx-auto">
+    <div class="">
+      <h2 class="text-xl uppercase tracking-wider text-[#163530] font-bold font-[comfortaa]"><%= post.title %></h2>
+      <img class="img-fluid mb-5" src="<%= post.image%>" />
+      <div class="w-full flex flex-col text-center m-auto bg-zinc-200 capitalize tracking-wider">
+        <div class="flex flex-row justify-around border-b-4 border-[#E9F1EF] w-full">
+          <span class="form-label p-2 border flex-grow basis-0 border-white">exercise</span>
+          <span class="form-label p-2 border shrink basis-24 border-white">sets</span>
+          <span class="form-label p-2 border shrink basis-24 border-white">reps</span>
+        </div>
+        <div class="flex flex-row justify-around">
+          <span class="form-label p-2 border flex-grow basis-0 border-white"><%= post.exercise1 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.sets1 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.reps1 %></span>
+        </div>
+        <div class="flex flex-row justify-around">
+          <span class="form-label p-2 border flex-grow basis-0 border-white"><%= post.exercise2 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.sets2 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.reps2 %></span>
+        </div>
+        <div class="flex flex-row justify-around">
+          <span class="form-label p-2 border flex-grow basis-0 border-white"><%= post.exercise3 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.sets3 %></span>
+          <span class="form-label p-2 border shrink basis-24 border-white"><%= post.reps3 %></span>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <form
+          class="col-1"
+          action="/post/likePost/<%= post._id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="fa-solid fa-heart" type="submit"></button>
+        </form>
+        <h3 class="col-3">Likes: <%= post.likes %></h3>
+        <%if(post.user == user.id){ %>
+        <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button class="btn btn-primary fa-solid fa-trash" type="submit"></button>
+        </form>
+        <%}%>
+      </div>
+    </div>
+    <div class="">
+      <p class="text-[#60DBCC] tracking-wider font-semibold my-3">@<%= post.user.userName %></p>
+
+      <p><%= post.caption %></p>
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<comments.length; i++) {%>
+          <li>
+            <%= comments[i].comment%>
+          </li>
+          <li>
+            <%= comments[i].user.userName%>
+          </li>
+        <% } %>
+        </ul>
+      <form action="/comment/createComment/<%=post._id%>" method="POST">
+        <div class="my-3">
+            <label for="comment" class="form-label py-4 flex-grow basis-0 border-white">@<%= userName %></label>
+            <div class="grid grid-cols-5 gap-2 mt-2">
+              <input type="text" class="col-span-4	bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2" id="comment" name="comment">
+              <button type="submit" class="px-1 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white">SEND</button>  
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

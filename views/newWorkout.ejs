@@ -1,0 +1,58 @@
+<%- include('partials/header') -%>
+<%- include('partials/headerbody') -%>
+
+<div class="container min-w-full">
+  <div class="mt-5 w-full justify-center flex">
+      <div class="mt-5 max-w-md">
+          <!-- <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div> -->
+          <div class="m-auto ">
+            <h2 class="text-2xl text-center uppercase text-[#163530] tracking-wider font-semibold font-[comfortaa] pb-3">Add a Workout</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="w-full flex flex-col text-center m-auto mb-8 bg-gray-200 uppercase tracking-wider">
+                <div class="flex flex-row justify-around bg-gray-200 border-b-4 border-[#E9F1EF] w-full">
+                  <label for="exercise1" class="form-label p-2 border flex-grow basis-0 border-white">exercise</label>
+                  <label for="sets1" class="form-label p-2 border shrink basis-24 border-white">sets</label>
+                  <label for="reps1" class="form-label p-2 border shrink basis-24 border-white">reps</label>
+                </div>
+                <div class="flex flex-row justify-around">
+                  <input type="text" class="bg-transparent form-control text-center min-w-0 flex-grow basis-0 border border-white p-2" id="exercise1" name="exercise1">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="sets1" name="sets1">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="reps1" name="reps1">
+                </div>
+                <div class="flex flex-row justify-around">
+                  <input type="text" class="bg-transparent form-control block min-w-0  flex-grow basis-0 text-center border p-2 border-white" id="exercise2" name="exercise2">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="sets2" name="sets2">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="reps2" name="reps2">
+                </div>
+                <div class="flex flex-row justify-around">
+                  <input type="text" class="bg-transparent form-control block mx-auto flex-grow basis-0 text-center border p-2 border-white" id="exercise3" name="exercise3">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="sets3" name="sets3">
+                  <input type="text" class="bg-transparent form-control text-center border min-w-0 shrink basis-24 border-white p-2" id="reps3" name="reps3">
+                </div>
+            </div>
+
+              <div class="text-left m-auto mb-8 uppercase tracking-wider">
+                <label for="title" class="form-label p-2 flex-grow basis-0 border-white">Workout Name:</label>
+                <input type="text" class="bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2 p-2 mt-2" id="title" name="title">
+              </div>
+              <div class="text-left m-auto mb-8 uppercase tracking-wider">
+                <label for="caption" class="form-label p-2 flex-grow basis-0 border-white">Caption:</label>
+                <textarea class="bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2 mt-2 p-2" id="caption" name="caption"></textarea>
+              </div>
+              <div class="text-left m-auto mb-8 uppercase tracking-wider">
+                <label for="imgUpload" class="form-label p-2 flex-grow basis-0 border-white">Image:</label>
+                <input type="file" class="bg-transparent form-control block w-full mx-auto text-center border-[#60DBCC] border-2 p-2 mt-2" id="imageUpload" name="file">
+              </div>
+              <div class="text-center m-auto mb-8">
+                <button type="submit" class="px-4 p-3 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white" value="Upload">Submit</button>
+              </div>
+            </form>
+          </div>
+    </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>

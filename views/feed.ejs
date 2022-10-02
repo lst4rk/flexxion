@@ -1,0 +1,51 @@
+<%- include('partials/header') -%>
+<%- include('partials/headerbody') -%>
+
+  <div class="container min-w-full">
+    <div class="mt-5 max-w-lg mx-auto">
+      <ul class="list-unstyled mt-5">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="my-10">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+              <div class="flex justify-between w-full py-3 flex-row">
+                <span class="text-xl uppercase tracking-wider text-[#163530] font-bold font-[comfortaa]"><%= posts[i].title %></span>
+                <span class="tracking-wider"><%= posts[i].createdAt.toLocaleDateString("en-US") %></span>
+              </div>
+            </a>
+
+            <div class="w-full flex flex-col text-center m-auto bg-zinc-200 capitalize tracking-wider">
+              <div class="flex flex-row justify-around bg-zinc-200 border-b-4 border-[#E9F1EF] w-full">
+                <span class="form-label p-2 border flex-grow basis-0 border-white">exercise</span>
+                <span class="form-label p-2 border shrink basis-24 border-white">sets</span>
+                <span class="form-label p-2 border shrink basis-24 border-white">reps</span>
+              </div>
+              <div class="flex flex-row justify-around">
+                <span class="form-label p-2 border flex-grow basis-0 border-white"><%= posts[i].exercise1 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].sets1 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].reps1 %></span>
+              </div>
+              <div class="flex flex-row justify-around">
+                <span class="form-label p-2 border flex-grow basis-0 border-white"><%= posts[i].exercise2 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].sets2 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].reps2 %></span>
+              </div>
+              <div class="flex flex-row justify-around">
+                <span class="form-label p-2 border flex-grow basis-0 border-white"><%= posts[i].exercise3 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].sets3 %></span>
+                <span class="form-label p-2 border shrink basis-24 border-white"><%= posts[i].reps3 %></span>
+
+              </div>
+            </div>  
+            <a href="/userProfile/<%= posts[i].user._id%>">
+              <p class="text-[#60DBCC] tracking-wider font-semibold py-3">@<%= posts[i].user.userName %></p>
+            </a>
+            <p><%= posts[i].caption %></p>          
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>
+
+
