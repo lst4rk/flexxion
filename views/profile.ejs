@@ -4,11 +4,16 @@
 <div class="container min-w-full flex">
   <div class="mt-5 max-w-lg lg:max-w-3xl  mx-auto">
           <div class="text-center my-8">
-              <p class="text-[#60DBCC] tracking-wider font-semibold my-3 text-2xl">@<%= user.userName %></p>
-              <p class="my-3"><%= user.email %></p>
+              <p class="text-[#60DBCC] tracking-wider font-semibold my-3 text-2xl">@<%= publicUser.userName %></p>
+              <% if(publicUser === user){ %>
+                <p class="my-3"><%= user.email %></p>
+                <% } %>
+      
           </div>
           <div class="text-center my-8">
-            <a href="/logout" class="px-3 p-2 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white">Logout</a>
+            <% if(publicUser === user){ %>
+              <a href="/logout" class="px-3 p-2 uppercase border-2 border-[#163530] rounded-md tracking-wider bg-[#163530] text-white">Logout</a>
+              <% } %>
           </div>
           <div class="mt-5 w-full mx-auto">
             <!-- <ul class=" list-unstyled grid grid-cols-3 gap-4"> -->

@@ -13,12 +13,6 @@
                 <span class="tracking-wider"><%= posts[i].createdAt.toLocaleDateString("en-US") %></span>
               </div>
             </a>
-            <form
-              action="/post/likePost/<%=posts[i]._id%>?_method=PUT"
-              method="POST"
-             >
-              <button class="cursor-pointer fa-solid fa-heart" type="submit"></button>
-            </form>
   
             <div class="w-full flex flex-col text-center m-auto bg-zinc-200 capitalize tracking-wider">
               <div class="flex flex-row justify-around bg-zinc-200 border-b-4 border-[#E9F1EF] w-full">
