@@ -9,6 +9,10 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/", homeController.getIndex);
 router.get("/profile", ensureAuth, postsController.getProfile);
 router.get("/userProfile/:id", ensureAuth, postsController.getUserProfile);
+
+router.put("/updateProfile", ensureAuth, postsController.updateProfile)
+router.put("/editProfile", ensureAuth, postsController.editProfile)
+
 router.get("/feed", ensureAuth, postsController.getFeed);
 router.get("/newWorkout", ensureAuth, postsController.getNewWorkout);
 router.get("/login", authController.getLogin);

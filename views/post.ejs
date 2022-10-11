@@ -28,23 +28,28 @@
           <span class="form-label p-2 border shrink basis-24 border-white"><%= post.reps3 %></span>
         </div>
       </div>
-
-      <div class="">
-        <% if(post.user.id === user){ %>
-          <form
-            action="/post/deletePost/<%=post._id%>?_method=DELETE"
-            method="POST"
-          >
-            <button class="" type="submit">delete</button>
-          </form>
-        <% } %>
-      </div>
     </div>
     <div class="md:flex-col md:flex md:justify-between">
       <div class="my-6">
-        <a href="/userProfile/<%= post.user._id%>">
-          <p class="text-[#60DBCC] tracking-wider font-semibold mb-3"><%= post.user.userName %></p>
-        </a>
+        <div class="flex flex-row justify-between">
+          <a href="/userProfile/<%= post.user._id%>">
+            <span class="text-[#60DBCC] tracking-wider font-semibold mb-3"><%= post.user.userName %></span>
+          </a>
+          <span class="">
+            <% if(post.user.id === user){ %>
+              <form
+                action="/post/deletePost/<%=post._id%>?_method=DELETE"
+                method="POST"
+                class="inline"
+              >
+                <button class="" type="submit">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            <% } %>
+            </span>  
+        </div>
+  
         <p><%= post.caption %></p>
     
       </div>

@@ -4,15 +4,19 @@
 <div class="container min-w-full flex">
   <div class="mt-5 max-w-lg lg:max-w-3xl w-full mx-auto">
     <div class="md:flex md:justify-between">
-          <div class="md:text-left my-8 text-center flex flex-col justify-between">
+          <div class="md:text-left my-8 text-center flex-grow">
               <p class="text-[#163530] tracking-wider font-semibold my-3 text-xl">
                 <!-- <span class="text-center font-[comfortaa] bg-gradient-to-br	from-[#163530] text-white to-[#60DBCC] p-5 rounded-full text-2xl">
                   <i class="fa-solid fa-face-meh-blank"></i>
                 </span> -->
                 <span class="py-1 text-2xl"><%= publicUser.userName %></span>
-                <p class="py-5 md:text-left pr-10"><%= publicUser.bio %></p>
-              
-          
+                <form
+                  action="/updateProfile?_method=PUT"
+                  method="POST"
+                >
+                  <textarea id="bio" name="bio" class="border border-grey-400 resize-none block w-5/6" type="text"><%= publicUser.bio %></textarea>
+                  <button class="px-2 p-1 uppercase border border-[#163530] my-3 text-[#163530] text-sm" type="submit">save</button>
+                </form>
 
               </p>
           </div>
@@ -20,24 +24,11 @@
             <% if(publicUser === user){ %>
               <p class="my-3 text-sm text-gray-500"><%= user.email %></p>
               <% } %>
-              <div>
-              <!-- edit bio if user logged in -->
-              <div class="">
-                <% if(publicUser === user){ %>
-                  <form
-                    action="/editProfile?_method=PUT"
-                    method="POST"
-                  >
-                    <button class="px-2 p-1 uppercase border border-[#163530] my-3 text-[#163530] text-sm" type="submit">edit bio</button>
-                  </form>
-                <% } %>
-              </div>
-  
+    
               <% if(publicUser === user){ %>
-                <a href="/logout" class="px-2 p-1 my-3 uppercase border border-[#163530] text-[#163530] text-sm">Logout</a>
+                <a href="/logout" class="px-2 p-1 uppercase border border-[#163530] rounded-md text-[#163530] text-sm">Logout</a>
                 <% } %>
-
-              </div>
+  
           </div>
     </div>
           <span class="mx-auto text-center mt-5 block w-32">
@@ -45,7 +36,7 @@
           </span>
           <div class="mt-5 w-full mx-auto">
             <!-- <ul class=" list-unstyled grid grid-cols-3 gap-4"> -->
-            <ul class="flex w-full flex-col my-10 lg:grid lg:grid-cols-3 lg:gap-4 ">
+            <ul class="flex w-full flex-col my-4 lg:grid lg:grid-cols-3 lg:gap-4 ">
             <% for(var i=0; i<posts.length; i++) {%>
               <li class="my-3">
                 <a href="/post/<%= posts[i]._id%>">

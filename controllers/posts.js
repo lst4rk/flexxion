@@ -9,6 +9,7 @@ module.exports = {
       const user = await User.findById(req.params.id);
       const posts = await Post.find({ user: req.user.id });
       res.render("profile.ejs", { posts: posts, publicUser: req.user, user: req.user});
+      console.log(req.user);
     } catch (err) {
       console.log(err);
     }
@@ -110,5 +111,34 @@ module.exports = {
       console.log(err);
     }
   },
+  updateProfile: async (req, res) => {
+    try {
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          $set: { bio: req.body.bio },
+        }
+      );
+      console.log(req.body);
+      res.redirect(`/profile`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  editProfile: async (req, res) => {
+    try {
+      const prevBio = await User.findById(req.user.id).bio;
+      const posts = await Post.find({ user: req.user.id });
+      const user = await User.findById(req.user.id);
+      res.render("editProfile.ejs", { posts: posts, publicUser: req.user, user: req.user, prevBio: prevBio });
+      console.log(prevBio);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
 
 };
+
+// COME FIX PROFILES
