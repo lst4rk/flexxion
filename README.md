@@ -1,5 +1,11 @@
 # flexion
-flexion is a full-stack web app where users can create an account, share and track their workouts, view user profiles, and interact with other users' comments.
+flexion is a full-stack web app where users can create an account, share and track their workouts, view user profiles, and interact with other users' content.
+
+![screenshot of flexion signup page](https://github.com/lst4rk/flexxion/blob/6bf92bf95f29e31500fd1cd4b444ec9bc71c9838/Screen%20Shot%202022-10-11%20at%201.25.24%20PM.png)
+
+![screenshot of flexion individual post page](https://github.com/lst4rk/flexxion/blob/6bf92bf95f29e31500fd1cd4b444ec9bc71c9838/Screen%20Shot%202022-10-11%20at%201.23.13%20PM.png)
+
+![screenshot of flexion user profile page](https://github.com/lst4rk/flexxion/blob/6bf92bf95f29e31500fd1cd4b444ec9bc71c9838/Screen%20Shot%202022-10-11%20at%201.22.09%20PM.png)
 
 ## How It's Made:
 
